@@ -1,7 +1,7 @@
 form {
     padding: 10px;
 }
-input {
+input,select {
     padding: 5px 20px;
     width: 100%;
     line-height: 16px;
@@ -10,4 +10,8 @@ input {
     background-color:$light-gray;
     border: 0;
     font-size: 1.5em;
+}
+#urlerror{
+    color: red;
+    margin-bottom: 20px;
 }

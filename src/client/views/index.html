@@ -2,55 +2,62 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Test</title>
+        <title>Senti.me</title>
     </head>
-
     <body>
         <div class="container">
             <header>
                 <div class="logo">
-                    <img src="/summme_logo.svg" alt="">
+                    <img src="/sentime_logo.svg" alt="Senti.me">
                 </div>
             </header>
             <main>
                 <section id="question" class="form-container">
-                <h1>Summ.me is an web app that allows you to summarize a news.
+                <h1>Senti.me performs a sentiment analysis from website content. 
                 </h1>
+                <p>Senti.me identifies the positive, negative, neutral polarity in any text.</p>
                 <ol>
                     <li>Choose a news on the web</li>
                     <li>Copy the url</li>
                     <li>Paste it bellow</li>
-                    <li>Select the number of sentences you want</li>
-                    <li>Summarize ! </li>
+                    <li>Select the language of the content</li>
+                    <li>Senti me ! </li>
                 </ol>
                 <form onsubmit="Client.handleSubmit(event)" id="summmeForm">
                     <div class="form-url">
-                        <label for="url">News URL</label>
-                        <input id="url" type="url" name="url" placeholder="Paste an news URL here">
+                        <label for="url">Source URL</label>
+                        <input id="url" type="url" name="url" placeholder="Paste your URL here">
+                        <div id="urlerror" style="display: none;">The URL is not valid. </div>
                     </div>
                     <div class="form-sentences">
-                        <label for="sentences">Number of sentences</label>
-                        <input id="sentences" type="number" name="sentences" placeholder="5" min="1" max="20" value="5">
+                        <label for="lang">Content's language</label>
+                        <select name="lang" id="lang">
+                            <option value="en">English</option>
+                            <option value="fr">French</option>
+                            <option value="es">Spanish</option>
+                            <option value="ca">Catalan</option>
+                            <option value="it">Italian</option>
+                            <option value="pt">Portuguese</option>
+                        </select>
                     </div>
                     <div class="form-btn">
-                        <input id="submit" class="btn" type="submit" name="submit" value="Summarize !" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
+                        <input id="submit" class="btn" type="submit" name="submit" value="Senti me !" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
                     </div>
                 </form>
                 </section>
-                
                 <section id="answer" class="form-container" style="display: none;">
-                    <!--RESULTS-->
-                    <h1>Your summary:</h1>
-                    <p id="summary"></p>
+                    <h1>RESULTS</h1>
+                    <p>Results for: <span id="sentimezed_url"></span> </p>
+                    <p><span>Polarity : </span><strong id="score_tag"></strong></p>
+                    <p><span>Subjectivity : </span><strong id="subjectivity"></strong></p>
+                    <p><span>Irony : </span><strong id="irony"></strong></p>
                     <input id="reset" class="btn" type="submit" name="reset" value="Restart !" onclick="return Client.resetForm()" onsubmit="return Client.resetForm()">
                    
                 </section>
             </main>
             <footer>Didier Grand did this for the Udacity Front End Web Developer Nanodegree Program</footer>
             <script>
-                // Check that service workers are supported
                 if ('serviceWorker' in navigator) {
-                // Use the window load event to keep the page load performant
                 window.addEventListener('load', () => {
                     navigator.serviceWorker.register('/service-worker.js');
                 });

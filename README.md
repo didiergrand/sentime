@@ -1,10 +1,10 @@
 ## Project
-This News Summary website I called summ.me using Natural Language Processing API. The website allows user to type in any url containing a news, and  MeaningCloud API is doing a summary of that news.
+This Sentiment Analysis website I called Senti.me using Natural Language Processing API. The website allows user to choose any url containing some texts, and MeaningCloud API is doing a Sentiment Analysis of that page.
 
 > Natural language processing (NLP) is a subfield of linguistics, computer science, and artificial intelligence concerned with the interactions between computers and human language, in particular how to program computers to process and analyze large amounts of natural language data. The goal is a computer capable of "understanding" the contents of documents, including the contextual nuances of the language within them. The technology can then accurately extract information and insights contained in the documents as well as categorize and organize the documents themselves. 
 
 
-## Install and run summ.me
+## Install and run Senti.me
 
 Open a terminal and go to the project folder and run this :
 - npm install
